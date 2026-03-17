@@ -1,0 +1,4 @@
+.forge/secrets.yaml
+node_modules/
+.env*
+.next/

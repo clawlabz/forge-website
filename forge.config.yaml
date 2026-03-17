@@ -1,0 +1,76 @@
+version: "1.0"
+
+project:
+  name: "forge-website"
+  description: "Forge 官网 — 一人公司的产品工厂，展示和售卖 AI 产品制造工具"
+  domain: "forge.clawlabz.xyz"
+
+models:
+  brainstorm: "opus"
+  prd: "opus"
+  architect: "opus"
+  design: "sonnet"
+  develop: "sonnet"
+  test: "sonnet"
+  verify: "opus"
+  deploy: "haiku"
+  fallback: "current"
+
+providers:
+  doc_hosting:
+    type: "github"
+    config:
+      repo: "clawlabz/forge-website"
+      branch: "main"
+
+  deployment:
+    type: "vercel"
+    strategy: "mcp_first"
+    config:
+      team: ""
+
+  database:
+    type: "supabase"
+    strategy: "script_first"
+    config:
+      project_ref: ""
+
+  dns:
+    type: "cloudflare"
+    strategy: "mcp_first"
+    config:
+      zone: "clawlabz.xyz"
+
+  storage:
+    type: "cloudflare_r2"
+    config:
+      bucket: "forge-website"
+
+  design:
+    type: "stitch"
+    config:
+      mcp_package: "@_davideast/stitch-mcp"
+
+  testing:
+    type: "playwright"
+    config: {}
+
+optional:
+  analytics:
+    ga4:
+      enabled: true
+      measurement_id: ""
+    clarity:
+      enabled: true
+      project_id: ""
+  knowledge_base:
+    enabled: true
+
+approval:
+  method: "github"
+  gates:
+    - prd
+    - architect
+    - design
+
+preset: "claw"
