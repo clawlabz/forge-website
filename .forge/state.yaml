@@ -1,19 +1,33 @@
 version: "1.0"
 project: "forge-website"
 started_at: "2026-03-17T00:00:00Z"
-current_phase: "P1_prd"
-status: "running"
+current_phase: "approval_gate_P2_P3"
+status: "waiting_approval"
 phases:
   P0_brainstorm:
     status: "completed"
     result: "GO"
     outputs:
       - "docs/forge/P0-brainstorm-report.md"
-  P1_prd: { status: "running" }
-  P2_architect: { status: "not_started" }
-  P3_design: { status: "not_started" }
+  P1_prd:
+    status: "completed"
+    approved_at: "2026-03-17"
+    outputs:
+      - "docs/forge/P1-prd.md"
+  P2_architect:
+    status: "completed"
+    outputs:
+      - "docs/forge/P2-architecture.md"
+      - "docs/forge/P2-dev-plan.md"
+  P3_design:
+    status: "completed"
+    stitch_project_id: "2247946197529601075"
+    outputs:
+      - "docs/forge/P3-design-spec.md"
+      - "docs/forge/P3-design-brief.md"
+      - "docs/forge/screenshots/"
   P4_develop: { status: "not_started" }
   P5_test: { status: "not_started" }
   P6_verify: { status: "not_started" }
   P7_deploy: { status: "not_started" }
-summary: "P0 completed (GO). Starting P1 PRD."
+summary: "P2 Architecture + P3 Design completed. Awaiting approval for both."
