@@ -74,12 +74,17 @@ export function WaitlistForm({
       className={`flex flex-col gap-4 ${className}`}
     >
       {/* Email */}
+      <label htmlFor="waitlist-email" className="sr-only">
+        Email address
+      </label>
       <input
+        id="waitlist-email"
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@example.com"
+        aria-label="Email address"
         className="h-12 rounded-lg border border-slate-700 bg-slate-900 px-4 font-mono text-sm text-white placeholder-slate-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#1337ec]"
       />
 

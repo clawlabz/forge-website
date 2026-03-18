@@ -1,28 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, Terminal } from "lucide-react";
-import { SHOWCASE_PROJECTS } from "@/lib/showcase-data";
+import { SHOWCASE_PROJECTS, formatBuildTime, SHOWCASE_CARD_COLORS } from "@/lib/showcase-data";
 
 export const metadata: Metadata = {
   title: "Showcase",
   description:
     "Real products built with Forge — from a single sentence to deployed product.",
 };
-
-function formatBuildTime(minutes: number): string {
-  if (minutes >= 60) {
-    const hours = Math.floor(minutes / 60);
-    const remaining = minutes % 60;
-    return remaining > 0 ? `${hours}h ${remaining}m` : `${hours} hours`;
-  }
-  return `${minutes} mins`;
-}
-
-const CARD_COLORS = [
-  "bg-indigo-900/40",
-  "bg-purple-900/40",
-  "bg-cyan-900/40",
-] as const;
 
 export default function ShowcasePage() {
   return (
@@ -47,7 +32,7 @@ export default function ShowcasePage() {
           >
             {/* Screenshot placeholder */}
             <div
-              className={`relative aspect-[16/10] w-full ${CARD_COLORS[index % CARD_COLORS.length]} flex items-center justify-center`}
+              className={`relative aspect-[16/10] w-full ${SHOWCASE_CARD_COLORS[index % SHOWCASE_CARD_COLORS.length]} flex items-center justify-center`}
             >
               <span className="text-2xl font-bold text-white/20">
                 {project.name}
@@ -117,7 +102,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="mt-16 mb-8 flex flex-col items-center gap-8 overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 p-8 text-center shadow-xl md:p-16">
+      <section className="relative mt-16 mb-8 flex flex-col items-center gap-8 overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 p-8 text-center shadow-xl md:p-16">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1337ec]/10 to-transparent" />
         <h2 className="relative z-10 text-3xl font-bold md:text-4xl">
           Your product could be next

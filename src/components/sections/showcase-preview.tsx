@@ -1,17 +1,6 @@
 import Link from "next/link";
 import { ExternalLink, ArrowRight } from "lucide-react";
-import { SHOWCASE_PROJECTS } from "@/lib/showcase-data";
-
-function formatBuildTime(minutes: number): string {
-  if (minutes >= 60) {
-    const hours = Math.floor(minutes / 60);
-    const remaining = minutes % 60;
-    return remaining > 0 ? `${hours}h ${remaining}m` : `${hours} hours`;
-  }
-  return `${minutes} mins`;
-}
-
-const CARD_COLORS = ["bg-indigo-900/40", "bg-purple-900/40", "bg-cyan-900/40"] as const;
+import { SHOWCASE_PROJECTS, formatBuildTime, SHOWCASE_CARD_COLORS } from "@/lib/showcase-data";
 
 export function ShowcasePreview() {
   return (
@@ -32,7 +21,7 @@ export function ShowcasePreview() {
             >
               {/* Screenshot placeholder */}
               <div
-                className={`relative aspect-[16/10] w-full ${CARD_COLORS[index % CARD_COLORS.length]} flex items-center justify-center`}
+                className={`relative aspect-[16/10] w-full ${SHOWCASE_CARD_COLORS[index % SHOWCASE_CARD_COLORS.length]} flex items-center justify-center`}
               >
                 <span className="text-2xl font-bold text-white/20">
                   {project.name}

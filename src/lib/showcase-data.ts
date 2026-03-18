@@ -45,3 +45,18 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
     buildLogUrl: "https://github.com/clawlabz/clawhealth",
   },
 ] as const;
+
+export function formatBuildTime(minutes: number): string {
+  if (minutes >= 60) {
+    const hours = Math.floor(minutes / 60);
+    const remaining = minutes % 60;
+    return remaining > 0 ? `${hours}h ${remaining}m` : `${hours} hours`;
+  }
+  return `${minutes} mins`;
+}
+
+export const SHOWCASE_CARD_COLORS = [
+  "bg-indigo-900/40",
+  "bg-purple-900/40",
+  "bg-cyan-900/40",
+] as const;
