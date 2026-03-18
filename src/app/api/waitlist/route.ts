@@ -6,8 +6,10 @@ import { getSupabase } from "@/lib/supabase";
 export async function POST(request: NextRequest) {
   try {
     // Extract IP
-    const forwarded = request.headers.get("x-forwarded-for");
-    const ip = forwarded?.split(",")[0]?.trim() ?? "unknown";
+    const ip =
+      request.headers.get("x-real-ip") ??
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      "unknown";
 
     // Rate limit check
     if (!checkRateLimit(ip)) {

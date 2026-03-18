@@ -10,7 +10,12 @@ export const waitlistSchema = z.object({
     .enum(["free", "pro", "unlimited", "hosted"])
     .nullable()
     .optional(),
-  source_page: z.string().max(100).optional().default("/"),
+  source_page: z
+    .string()
+    .max(100)
+    .regex(/^\/[\w\-./]*$/, "Invalid path")
+    .optional()
+    .default("/"),
 });
 
 export type WaitlistInput = z.infer<typeof waitlistSchema>;

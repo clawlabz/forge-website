@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 const cspDirectives = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https:",
+  "img-src 'self' data: blob: https://www.googletagmanager.com https://www.clarity.ms",
   "font-src 'self' data:",
   "connect-src 'self' https://*.supabase.co https://www.googletagmanager.com https://www.clarity.ms",
   "frame-src 'self' https://asciinema.org",

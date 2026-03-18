@@ -80,7 +80,7 @@ export default function PricingPage() {
               </Link>
 
               <ul className="relative z-10 mt-4 flex flex-col gap-4">
-                {tier.features.map((feature, i) => {
+                {tier.features.map((feature) => {
                   const isInherited = feature.startsWith("Everything in");
                   return (
                     <li
