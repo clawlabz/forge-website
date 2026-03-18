@@ -5,3 +5,6 @@ node_modules/
 .forge/design-html/
 .forge/secrets.yaml
 .forge/logs/
+node_modules/
+.next/
+.env.local
